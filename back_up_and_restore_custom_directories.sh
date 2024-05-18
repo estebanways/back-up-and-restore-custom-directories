@@ -24,12 +24,6 @@
 # 2. Extract the archive.
 # ------------------------------------------------------------
 
-# Ensure the script is being run as root
-if [ "$(id -u)" -ne 0 ]; then
-    echo "This script must be run as root" >&2
-    exit 1
-fi
-
 # BACK UP
 # Change to the directory where you want the TGZ and log files to be stored
 cd || exit
