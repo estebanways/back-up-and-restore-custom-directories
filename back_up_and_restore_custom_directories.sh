@@ -14,7 +14,7 @@
 # the directories from the archive.
 #
 # BACK UP
-# 1. Change to the directory where you want the TGZ and log files, for example, $HOME.
+# 1. Change to the directory where you want the TGZ and log files.
 # 2. Add new directories or remove them as required from the list.
 # 3. Compress the directories to a new archive dirs.tgz.
 # 4. Copy the archive to your storage drive(s).
