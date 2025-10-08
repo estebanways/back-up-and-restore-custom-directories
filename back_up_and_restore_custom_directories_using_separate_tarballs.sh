@@ -38,11 +38,11 @@ sudo tar -cvzpf DevDocs_dir.tgz "$HOME"/DevDocs/ 2>>dirs.log
 sudo tar -cvzpf Documents_dir.tgz "$HOME"/Documents/ 2>>dirs.log
 sudo tar -cvzpf Downloads_dir.tgz "$HOME"/Downloads/ 2>>dirs.log
 sudo tar -cvzpf NextVideos_dir.tgz "$HOME"/NextVideos/ 2>>dirs.log
-# Docker stacks directories
-sudo tar -cvzpf arcane_dir.tgz "$HOME"/Stacks/arcane/ 2>>dirs.log
-sudo tar -cvzpf commbase_dir.tgz "$HOME"/Stacks/commbase/ 2>>dirs.log
-sudo tar -cvzpf devstation_dir.tgz "$HOME"/Stacks/devstation/ 2>>dirs.log
-sudo tar -cvzpf multiple-dev-container-vscode_dir.tgz "$HOME"/Stacks/multiple-dev-container-vscode/ 2>>dirs.log
+# Docker/Podman stack directories
+sudo tar -cvzpf arcane_dir.tgz "$HOME"/Docker/stacks/arcane/ 2>>dirs.log
+sudo tar -cvzpf commbase_dir.tgz "$HOME"/Docker/stacks/commbase/ 2>>dirs.log
+sudo tar -cvzpf devstation_dir.tgz "$HOME"/Docker/stacks/devstation/ 2>>dirs.log
+sudo tar -cvzpf multiple-dev-container-vscode_dir.tgz "$HOME"/Docker/stacks/multiple-dev-container-vscode/ 2>>dirs.log
 # Share directories
 sudo tar -cvzpf Syncthing_dir.tgz "$HOME"/Sync/ 2>>dirs.log
 # Local root user directories
