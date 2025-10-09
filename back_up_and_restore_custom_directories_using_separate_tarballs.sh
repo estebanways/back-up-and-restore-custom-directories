@@ -30,7 +30,7 @@
 # Change to the directory where you want the TGZs and log file to be stored
 cd || exit
 
-# Stop multiple password prompts
+# Skip multiple password prompts
 # sudo -v asks for the password once at the start
 # The while loop in the background refreshes the sudo timestamp every 60 seconds
 # so you won’t have to re-enter the password while the script runs.
@@ -50,8 +50,10 @@ echo "=== BACKUP START: BraveSoftware_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf BraveSoftware_dir.tgz "$HOME"/.config/BraveSoftware/ 2>dirs.log
 echo "=== BACKUP START: config_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf config_dir.tgz "$HOME"/config/ 2>>dirs.log
-echo "=== BACKUP START: nvim-site_dir.tgz ===" | tee -a dirs.log
-sudo tar -cvzpf nvim-site_dir.tgz "$HOME"/.local/share/nvim/site/ 2>>dirs.log
+echo "=== BACKUP START: sword-vim-nvim-site-only_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf sword-vim-nvim-site-only_dir.tgz "$HOME"/.local/share/nvim/site/ 2>>dirs.log
+echo "=== BACKUP START: lazyvim-config-only.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf lazyvim-config-only.tgz "$HOME"/.config/nvim/ 2>>dirs.log
 
 # User passwords and keys
 # Password Keyrings & Stored Passwords. Also, Private Keys & Certificates
