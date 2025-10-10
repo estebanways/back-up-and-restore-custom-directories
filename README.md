@@ -10,12 +10,35 @@ For the most part, you can simply back up directories and restore them to anothe
 
 These will work perfectly after being copied over.
 
-The only potential issue is file permissions. After you restore your ~/.ssh directory, you should immediately run the following command to make sure your private keys are secure. SSH will refuse to use keys that have overly permissive settings.
+The only potential issue is file permissions.
+
+When you run `ls -hal .ssh`, you must see something like this:
+
+```output
+drwx------  2 commbase commbase 4.0K Mar  1  2024 .
+drwx------ 49 commbase commbase 4.0K Oct  9 18:32 ..
+-rw-------  1 commbase commbase  571 Mar  1  2024 authorized_keys
+-rw-------  1 commbase commbase  411 Jan  5  2024 id_ed25519
+-rw-r--r--  1 commbase commbase  103 Jan  5  2024 id_ed25519.pub
+-rw-------  1 commbase commbase 2.6K Mar  1  2024 id_rsa
+-rw-r--r--  1 commbase commbase  571 Mar  1  2024 id_rsa.pub
+-rw-------  1 commbase commbase 2.0K Feb 29  2024 known_hosts
+-rw-------  1 commbase commbase 1.1K Feb 29  2024 known_hosts.old
+
+```
+
+After you restore your `~/.ssh` directory, you should immediately run the following commands to make sure your private keys are secure. SSH will refuse to use keys that have overly permissive settings.
 
 ```shell
 chmod 700 ~/.ssh
-chmod 600 ~/.ssh/id_*
+chmod 600 ~/.ssh/id_*        # private keys
+chmod 644 ~/.ssh/*.pub       # public keys
+chmod 644 ~/.ssh/known_hosts # optional, if exists
+chmod 644 ~/.ssh/config      # optional, if you have one
+
 ```
+
+It’s unnecessary to restrict the .pub files that much; you can safely set them to 644 (owner read/write, everyone else read).
 
 ### Password Keyrings (`~/.local/share/keyrings/`)
 
