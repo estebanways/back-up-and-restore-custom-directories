@@ -1,12 +1,61 @@
 # back-up-and-restore-custom-directories
 
-Compresses specified directories into .tgz archive(s) and logs errors. It includes optional commands for copying the archive(s) to a backup location and restoring directories from the archive(s).
+Back up and Restore scripts for custom directories.
 
-## Back Up and Restore Issues
+## back_up_and_restore_custom_directories_using_single_tarball.sh
 
-For the most part, you can simply back up directories and restore them to another computer. However, there is one very important detail to ensure everything works smoothly, especially for your saved passwords.
+Creates a single .tgz archive containing the specified directories and logs any errors encountered during the process.
 
-### SSH and GPG Keys (`~/.ssh`, `~/.gnupg`)
+Includes optional commands to copy the archive to a backup location and to restore directories from it.
+
+Best suited for simple or smaller backup sets.
+
+### Use
+
+Copy the script to your user home directory.
+
+Setup the files and directories you want to back up.
+
+Run the script.
+
+```shell
+bash back_up_and_restore_custom_directories_using_single_tarball.sh
+```
+
+## back_up_and_restore_custom_directories_using_separate_tarballs.sh
+
+Creates individual .tgz archives for specified directories and logs any errors encountered during the process.
+
+Ideal for handling large or complex backup sets that require separate, organized archives.
+
+### Use
+
+Copy the script to your user home directory.
+
+Setup the files and directories you want to back up.
+
+Run the script.
+
+```shell
+bash back_up_and_restore_custom_directories_using_separate_tarballs.sh
+```
+
+### Back Up and Restore Issues
+
+For the most part, you can simply back up directories and restore them to another computer. However, there is one very important detail to ensure everything works smoothly.
+
+#### Custom ~/config/ Directory
+
+If the custom ~/config/ directory is in use, disorganized-configs_dir.tgz stores the disorganized symbolic links to ~/config/. If there is no backup copy of disorganized-configs_dir.tgz but still want to use ~/config/, you can recreate symbolic links to the correspondent files or directories under ~/config/.
+
+Examples:
+
+```shell
+ln -s ~/config/.vimrc ~/.vimrc
+ln -s ~/config/.vim/ ~/.vim/
+```
+
+#### SSH and GPG Keys (`~/.ssh`, `~/.gnupg`)
 
 These will work perfectly after being copied over.
 
@@ -40,7 +89,7 @@ chmod 644 ~/.ssh/config      # optional, if you have one
 
 It’s unnecessary to restrict the .pub files that much; you can safely set them to 644 (owner read/write, everyone else read).
 
-### Password Keyrings (`~/.local/share/keyrings/`)
+#### Password Keyrings (`~/.local/share/keyrings/`)
 
 This is the part that requires attention. The `login.keyring` file, which stores your application and network passwords, is **encrypted using your user login password**.
 
@@ -48,7 +97,7 @@ This is the part that requires attention. The `login.keyring` file, which stores
 
 ⚠️ **If you use a different login password on the new computer**: The automatic unlock will fail. The first time an application tries to access a stored password, a prompt will appear asking for the password to unlock the keyring. You will need to **enter your OLD password** from your previous computer to unlock it. You can then use the "Passwords and Keys" application to change the keyring's password to match your new login password.
 
-### Summary & Best Practice
+#### Summary & Best Practice
 
 For the smoothest experience:
 
