@@ -40,6 +40,9 @@ sudo -v
 # Keep sudo alive
 while true; do sudo -n true; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
 
+# Clean up the log file
+: > dirs.log
+
 # Compress the specified directories into dirs _dir.tgz and log errors to dirs.log
 
 # Local user: current user
@@ -47,13 +50,21 @@ while true; do sudo -n true; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
 
 # User configs
 echo "=== BACKUP START: BraveSoftware_dir.tgz ===" | tee -a dirs.log
-sudo tar -cvzpf BraveSoftware_dir.tgz "$HOME"/.config/BraveSoftware/ 2>dirs.log
-echo "=== BACKUP START: config_dir.tgz ===" | tee -a dirs.log
-sudo tar -cvzpf config_dir.tgz "$HOME"/config/ 2>>dirs.log
+sudo tar -cvzpf BraveSoftware_dir.tgz "$HOME"/.config/BraveSoftware/ 2>>dirs.log
 echo "=== BACKUP START: sword-vim-nvim-site-only_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf sword-vim-nvim-site-only_dir.tgz "$HOME"/.local/share/nvim/site/ 2>>dirs.log
 echo "=== BACKUP START: lazyvim-config-only.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf lazyvim-config-only.tgz "$HOME"/.config/nvim/ 2>>dirs.log
+
+# Custom user configs
+echo "=== BACKUP START: config_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf config_dir.tgz "$HOME"/config/ 2>>dirs.log
+# If the custom ~/config/ directory is not in use, save a list of config files
+# or directories to a single archive.
+# tar preserves symlinks by default (it stores the link itself, not what it
+# points to, and the symlink relationship is stored.)
+echo "=== BACKUP START: disorganized-configs_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf disorganized-configs_dir.tgz "$HOME"/.bashrc "$HOME"/.tmux.conf.local "$HOME"/.vimrc "$HOME"/.wezterm.lua "$HOME"/.zshrc 2>>dirs.log
 
 # User passwords and keys
 # Password Keyrings & Stored Passwords. Also, Private Keys & Certificates
@@ -137,3 +148,13 @@ sudo -k
 
 # Extract the archives (uncomment and set the correct path)
 #tar -xvzpf /path/to/*dir.tgz
+
+# FURTHER STEPS
+
+# If the custom ~/config/ directory is in use, disorganized-configs_dir.tgz
+# stores the disorganized symbolic links to ~/config/. If there is no backup
+# copy of disorganized-configs_dir.tgz but still want to use ~/config/, you can
+# recreate symbolic links to the correspondent files or directories under ~/config/.
+# Examples:
+# ln -s ~/config/.vimrc ~/.vimrc
+# ln -s ~/config/.vim/ ~/.vim/
