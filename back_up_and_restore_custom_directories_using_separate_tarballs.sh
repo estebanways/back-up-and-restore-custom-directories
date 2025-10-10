@@ -158,3 +158,23 @@ sudo -k
 #for f in /path/to/*dir.tgz; do
 #  tar -xvzf "$f" -C /backup/restore/
 #done
+
+# Use an array of excluded filenames (clean and scalable)
+#exclude_list=(
+#  "/path/to/exclude1.tgz"
+#  "/path/to/exclude2.tgz"
+#  "/path/to/exclude3.tgz"
+#)
+#
+#for f in /path/to/*.tgz; do
+#  skip=false
+#  for ex in "${exclude_list[@]}"; do
+#    [[ "$f" == "$ex" ]] && skip=true && break
+#  done
+#  $skip && continue
+#
+#  tar -xvzf "$f"
+#done
+
+# This approach is recommended if you’ll add or remove excluded files often — it
+# keeps your code clean and easy to maintain.
