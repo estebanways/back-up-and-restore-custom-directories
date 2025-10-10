@@ -12,7 +12,7 @@ These will work perfectly after being copied over.
 
 The only potential issue is file permissions.
 
-When you run `ls -hal .ssh`, you must see something like this:
+When you run `ls -hal .ssh`, you should see something like this:
 
 ```output
 drwx------  2 myusername myusername 4.0K Mar  1  2024 .
@@ -27,7 +27,7 @@ drwx------ 49 myusername myusername 4.0K Oct  9 18:32 ..
 
 ```
 
-After you restore your `~/.ssh` directory, you should immediately run the following commands to make sure your private keys are secure. SSH will refuse to use keys that have overly permissive settings.
+If after restoring your `~/.ssh` directory you do not see the correct file permissions, you should immediately run the following commands to make sure your private keys are secure. SSH will refuse to use keys that have overly permissive settings.
 
 ```shell
 chmod 700 ~/.ssh
