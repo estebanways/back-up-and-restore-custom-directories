@@ -42,7 +42,15 @@ bash back_up_and_restore_custom_directories_using_separate_tarballs.sh
 
 ### Back Up and Restore Issues
 
-For the most part, you can simply back up directories and restore them to another computer. However, there is one very important detail to ensure everything works smoothly.
+For the most part, you can simply back up directories and restore them to another computer. However, there are some very important details to ensure everything works smoothly.
+
+#### /etc/ Directory
+
+The current backup version includes the entire `/etc/` directory. However, it can be made more granular by backing up only specific configuration files or subdirectories, such as `/etc/network/interfaces`, `/etc/hosts`, `/etc/ssl/`, `/etc/ssh`, or `/etc/postgresql/<version>/main/`.
+
+Maintaining a single `/etc/` archive is often the best approach for managing system-level configurations. To use it, extract the /etc/ tarball to a location within your home directory. This allows you to browse individual configuration files and selectively update your system as needed.
+
+It’s generally recommended to copy and paste the text contents of configuration files rather than copying the files themselves. This approach helps you avoid potential permission or ownership issues that can occur when directly overwriting system files.
 
 #### Custom ~/config/ Directory
 
