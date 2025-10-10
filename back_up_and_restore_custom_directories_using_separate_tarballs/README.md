@@ -26,7 +26,7 @@ bash back_up_custom_directories_using_separate_tarballs.sh
 
 Copy the script to the root directory `/`.
 
-Setup the files and directories you want to restore.
+Setup the archives you want to restore files and directories from.
 
 Run the script.
 
