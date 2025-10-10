@@ -46,7 +46,7 @@ For the most part, you can simply back up directories and restore them to anothe
 
 #### /etc/ Directory
 
-The current backup version includes the entire `/etc/` directory. However, it can be made more granular by backing up only specific configuration files or subdirectories, such as `/etc/network/interfaces`, `/etc/hosts`, `/etc/ssh/`, `/etc/ssl/`, or `/etc/postgresql/<version>/main/`.
+The current backup version includes the entire `/etc/` directory. However, it can be made more granular by backing up only specific configuration files or subdirectories, such as `/etc/hosts`, `/etc/network/interfaces`, `/etc/postgresql/<version>/main/`, `/etc/ssh/`, `/etc/ssl/`.
 
 Maintaining a single `/etc/` archive is often the best approach for managing system-level configurations. To use it, extract the /etc/ tarball to a location within your home directory. This allows you to browse individual configuration files and selectively update your system as needed.
 
