@@ -2,7 +2,7 @@
 
 Back up and Restore scripts for custom directories.
 
-## back_up_and_restore_custom_directories_using_single_tarball.sh
+## File: back_up_and_restore_custom_directories_using_single_tarball.sh
 
 Creates a single .tgz archive containing the specified directories and logs any errors encountered during the process.
 
@@ -22,7 +22,7 @@ Run the script.
 bash back_up_and_restore_custom_directories_using_single_tarball.sh
 ```
 
-## back_up_and_restore_custom_directories_using_separate_tarballs.sh
+## File: back_up_and_restore_custom_directories_using_separate_tarballs.sh
 
 Creates individual .tgz archives for specified directories and logs any errors encountered during the process.
 
