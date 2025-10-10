@@ -7,11 +7,10 @@
 # Date:        10/07/2025
 # ------------------------------------------------------------------------------
 # Description:
-# This script compresses specified directories into separate
-# .tgz archive files and logs any errors encountered during the
-# process. It also includes optional commands for copying the
-# archives to a specified backup directory and for restoring
-# the directories from the archives.
+# This script compresses specified directories into separate .tgz archive files
+# and logs any errors encountered during the process. It also includes optional
+# commands for copying the archives to a specified backup directory and for
+# restoring the directories from the archives.
 #
 # BACK UP
 # 1. Change to the directory where you want the TGZs and log file.
@@ -146,15 +145,16 @@ sudo -k
 # Go to the root of the file system (uncomment and run as needed)
 #cd /
 
-# Extract the archives (uncomment and set the correct path)
+# To extract a single archive (uncomment and set the correct path)
 #tar -xvzpf /path/to/*dir.tgz
 
-# FURTHER STEPS
+# To untar all .tgz archives in a directory. It extracts each archive one by one.
+# Use a loop
+#for f in /path/to/*_dir.tgz; do
+#  tar -xvzf "$f"
+#done
 
-# If the custom ~/config/ directory is in use, disorganized-configs_dir.tgz
-# stores the disorganized symbolic links to ~/config/. If there is no backup
-# copy of disorganized-configs_dir.tgz but still want to use ~/config/, you can
-# recreate symbolic links to the correspondent files or directories under ~/config/.
-# Examples:
-# ln -s ~/config/.vimrc ~/.vimrc
-# ln -s ~/config/.vim/ ~/.vim/
+# Add -C /destination/path if you want to extract them into a specific directory:
+#for f in /path/to/*dir.tgz; do
+#  tar -xvzf "$f" -C /backup/restore/
+#done
