@@ -1,6 +1,6 @@
 # back-up-and-restore-custom-directories-with-zstd
 
-🛠️ Compresses specified directories ...
+This guide explains how to back up and restore custom directories using Zstandard (zstd) for faster, more efficient compression compared to traditional gzip-based methods. It introduces a clean, array-based Bash script that compresses multiple directories into a .tar.zst archive, logs errors, and offers modern enhancements like adjustable compression levels, file exclusions, and parallel processing.
 
 ## Key Improvements
 

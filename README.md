@@ -105,6 +105,10 @@ This is the part that requires attention. The `login.keyring` file, which stores
 
 ⚠️ **If you use a different login password on the new computer**: The automatic unlock will fail. The first time an application tries to access a stored password, a prompt will appear asking for the password to unlock the keyring. You will need to **enter your OLD password** from your previous computer to unlock it. You can then use the "Passwords and Keys" application to change the keyring's password to match your new login password.
 
+#### back_up_and_restore_custom_directories_with_zstd/README.md
+
+A comprehensive guide to creating, verifying, and restoring backups using Zstandard (zstd) for faster and more efficient compression. It covers command examples, integrity checks, error recovery, and advanced techniques like dictionary-based compression to improve speed and consistency in repeated backups.
+
 #### Summary & Best Practice
 
 For the smoothest experience:
