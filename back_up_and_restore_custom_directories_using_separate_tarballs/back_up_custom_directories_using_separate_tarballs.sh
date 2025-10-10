@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Script Name: Backup and Restore Custom Directories
+# Script Name: Backup Custom Directories
 # Author:      Esteban Herrera Castro
 # Email:       stv.herrera@gmail.com
 # Date:        10/07/2025
@@ -9,23 +9,15 @@
 # Description:
 # This script compresses specified directories into separate .tgz archive files
 # and logs any errors encountered during the process. It also includes optional
-# commands for copying the archives to a specified backup directory and for
-# restoring the directories from the archives.
+# commands for copying the archives to a specified backup directory.
 #
-# BACK UP
+# Steps
 # 1. Change to the directory where you want the TGZs and log file.
 # 2. Add new directories or remove them as required from the list.
 # 3. Compress the directories to new archive dirs dir.tgz.
 # 4. Copy the archives to your storage drive(s).
-#
-# RESTORE
-# 1. Go to the root of the file system.
-# 2. Extract the archives.
 # ------------------------------------------------------------------------------
 
-# ==============================================================================
-# BACK UP
-# ==============================================================================
 # Change to the directory where you want the TGZs and log file to be stored
 cd || exit
 
@@ -134,47 +126,7 @@ sudo tar -cvzpf etc_dir.tgz /etc/ 2>>dirs.log
 # Optional: invalidate sudo cache at the end
 sudo -k
 
-# FURTHER STEPS
+# Further steps
 
 # Copy the archives to your storage drive(s) (uncomment and set the correct paths)
 #cp -dpR *dir.tgz /path/to/a/backup/directory
-
-# ==============================================================================
-# RESTORE
-# ==============================================================================
-# Go to the root of the file system (uncomment and run as needed)
-#cd /
-
-# To extract a single archive (uncomment and set the correct path)
-#tar -xvzpf /path/to/*dir.tgz
-
-# To untar all .tgz archives in a directory. It extracts each archive one by one.
-# Use a loop
-#for f in /path/to/*_dir.tgz; do
-#  tar -xvzf "$f"
-#done
-
-# Add -C /destination/path if you want to extract them into a specific directory:
-#for f in /path/to/*dir.tgz; do
-#  tar -xvzf "$f" -C /backup/restore/
-#done
-
-# Use an array of excluded filenames (clean and scalable)
-#exclude_list=(
-#  "/path/to/exclude1.tgz"
-#  "/path/to/exclude2.tgz"
-#  "/path/to/exclude3.tgz"
-#)
-#
-#for f in /path/to/*.tgz; do
-#  skip=false
-#  for ex in "${exclude_list[@]}"; do
-#    [[ "$f" == "$ex" ]] && skip=true && break
-#  done
-#  $skip && continue
-#
-#  tar -xvzf "$f"
-#done
-
-# This approach is recommended if you’ll add or remove excluded files often — it
-# keeps your code clean and easy to maintain.
