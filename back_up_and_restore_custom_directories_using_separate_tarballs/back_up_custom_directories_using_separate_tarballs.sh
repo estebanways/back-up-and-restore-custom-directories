@@ -42,6 +42,8 @@ while true; do sudo -n true; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
 # User configs
 echo "=== BACKUP START: BraveSoftware_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf BraveSoftware_dir.tgz "$HOME"/.config/BraveSoftware/ 2>>dirs.log
+echo "=== BACKUP START: DBeaverData_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf DBeaverData_dir.tgz "$HOME"/.local/share/DBeaverData/ 2>>dirs.log
 echo "=== BACKUP START: sword-vim-nvim-site-only_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf sword-vim-nvim-site-only_dir.tgz "$HOME"/.local/share/nvim/site/ 2>>dirs.log
 echo "=== BACKUP START: lazyvim-config-only.tgz ===" | tee -a dirs.log
@@ -103,6 +105,15 @@ sudo tar -cvzpf devstation_dir.tgz "$HOME"/Docker/stacks/devstation/ 2>>dirs.log
 echo "=== BACKUP START: multiple-dev-container-vscode_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf multiple-dev-container-vscode_dir.tgz "$HOME"/Docker/stacks/multiple-dev-container-vscode/ 2>>dirs.log
 
+# Local user: postgres (sudo is required)
+# ---------------------------------------
+
+# PostgreSQL databases backup directory
+echo "=== BACKUP START: all_databases_*.sql.gz ===" | tee -a dirs.log
+# Databases are already archived by the PostgreSQL back up Script, so no need to
+# run: sudo tar -cvzpf backups-postgresql_dir.tgz /var/backups/postgresql/ 2>>dirs.log
+cp -dpR /var/backups/postgresql/* ./
+
 # Local user: root (sudo is required)
 # -----------------------------------
 
@@ -118,8 +129,8 @@ sudo tar -cvzpf etc_dir.tgz /etc/ 2>>dirs.log
 #echo "=== BACKUP START: pandoras-images_dir.tgz ===" | tee -a dirs.log
 #sudo tar -cvzpf pandoras-images_dir.tgz /var/pandoras/images/ 2>>dirs.log
 
-# Local user: user2
-# -----------------
+# Local user: new_user_name
+# -------------------------
 
 # Add more directories here...
 
