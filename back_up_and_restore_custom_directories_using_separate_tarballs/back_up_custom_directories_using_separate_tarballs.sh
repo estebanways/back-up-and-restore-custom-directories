@@ -17,7 +17,10 @@
 # ------------------------------------------------------------------------------
 
 # Change to the directory where you want the TGZs and log file to be stored
-cd || exit
+# The new backups directory ensures the log and archives aren’t owned by root
+BACKUP_DIR="$HOME/backups"
+mkdir -p "$BACKUP_DIR"
+cd "$BACKUP_DIR" || exit
 
 # Skip multiple password prompts
 # sudo -v asks for the password once at the start

@@ -20,10 +20,12 @@ Run the script.
 bash back_up_custom_directories_using_separate_tarballs.sh
 ```
 
+The new files will appear in the directory `~/backups/`. This is to ensure the log and archives aren’t owned by root.
+
 Copy the archives to your storage drive(s) (set the correct paths).
 
 ```shell
-sudo cp -dpR *dir.tgz /path/to/a/backup/directory
+cp -dpR *dir.tgz /path/to/a/backup/directory
 ```
 
 ## File: restore_custom_directories_using_separate_tarballs.sh
@@ -37,7 +39,7 @@ Setup the archives you want to restore files and directories from.
 Run the script.
 
 ```shell
-bash restore_custom_directories_using_separate_tarballs.sh
+sudo bash restore_custom_directories_using_separate_tarballs.sh
 ```
 
 ### Back Up and Restore Issues
