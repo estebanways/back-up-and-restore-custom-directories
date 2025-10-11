@@ -24,12 +24,31 @@ bash back_up_custom_directories_using_single_tarball.sh
 
 ### Use
 
-Copy the script to the root directory `/`.
+Copy the restore script and the archive file to the root directory `/`.
 
-Setup the archive you want to restore files and directories from.
+Setup the archive you want to restore files and directories from in the restore script.
 
 Run the script.
 
 ```shell
-bash restore_custom_directories_using_single_tarball.sh
+sudo bash restore_custom_directories_using_single_tarball.sh
 ```
+
+or, if the script is executable:
+
+```shell
+sudo ./restore_dirs.sh
+```
+
+#### What Happens if You Don’t Use sudo
+
+You’ll get errors like:
+
+```output
+tar: ./etc: Cannot mkdir: Permission denied
+tar: ./root: Cannot open: Permission denied
+tar: Exiting with failure status due to previous errors
+
+```
+
+and the restore will fail partially or entirely.
