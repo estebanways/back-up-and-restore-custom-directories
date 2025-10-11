@@ -75,7 +75,7 @@ It’s generally recommended to copy and paste the text contents of configuratio
 
 #### Custom ~/config/ Directory
 
-If the custom ~/config/ directory is in use, disorganized-configs_dir.tgz stores the disorganized symbolic links to ~/config/. If there is no backup copy of disorganized-configs_dir.tgz but still want to use ~/config/, you can recreate symbolic links to the correspondent files or directories under ~/config/.
+If the custom `~/config/` directory is in use, disorganized-configs_dir.tgz stores the disorganized symbolic links to ~/config/. If there is no backup copy of disorganized-configs_dir.tgz but still want to use ~/config/, you can recreate symbolic links to the correspondent files or directories under ~/config/.
 
 Examples:
 
