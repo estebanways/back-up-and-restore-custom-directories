@@ -32,7 +32,7 @@ cp -dpR *dir.tgz /path/to/a/backup/directory
 
 ### Use
 
-Copy the script to the root directory `/`.
+Copy the restore script and the files in the `backups/` directory to the root directory `/`.
 
 Setup the archives you want to restore files and directories from.
 
