@@ -41,10 +41,21 @@ while true; do sudo -n true; sleep 60; kill -0 $$ || exit; done 2> /dev/null &
 # ------------------------
 
 # User configs
+# Desktop application configs
 echo "=== BACKUP START: BraveSoftware_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf BraveSoftware_dir.tgz "$HOME"/.config/BraveSoftware/ 2>> dirs.log
+echo "=== BACKUP START: obs-studio_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf obs-studio_dir.tgz "$HOME"/.config/obs-studio/ 2>> dirs.log
+
+# Development application configs
 echo "=== BACKUP START: DBeaverData_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf DBeaverData_dir.tgz "$HOME"/.local/share/DBeaverData/ 2>> dirs.log
+echo "=== BACKUP START: git_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf git_dir.tgz "$HOME"/.config/git/ 2>> dirs.log
+echo "=== BACKUP START: git-cola_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf git-cola_dir.tgz "$HOME"/.config/git-cola/ 2>> dirs.log
+echo "=== BACKUP START: kate_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf kate_dir.tgz "$HOME"/.config/kate/ 2>> dirs.log
 echo "=== BACKUP START: sword-vim-nvim-site-only_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf sword-vim-nvim-site-only_dir.tgz "$HOME"/.local/share/nvim/site/ 2>> dirs.log
 echo "=== BACKUP START: lazyvim-config-only.tgz ===" | tee -a dirs.log
