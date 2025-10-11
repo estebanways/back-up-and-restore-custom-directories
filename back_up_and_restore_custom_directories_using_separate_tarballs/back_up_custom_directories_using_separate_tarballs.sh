@@ -8,14 +8,12 @@
 # ------------------------------------------------------------------------------
 # Description:
 # This script compresses specified directories into separate .tgz archive files
-# and logs any errors encountered during the process. It also includes optional
-# commands for copying the archives to a specified backup directory.
+# and logs any errors encountered during the process.
 #
 # Steps
 # 1. Change to the directory where you want the TGZs and log file.
 # 2. Add new directories or remove them as required from the list.
 # 3. Compress the directories to new archive dirs dir.tgz.
-# 4. Copy the archives to your storage drive(s).
 # ------------------------------------------------------------------------------
 
 # Change to the directory where you want the TGZs and log file to be stored
@@ -137,8 +135,3 @@ sudo tar -cvzpf etc_dir.tgz /etc/ 2>> dirs.log
 
 # Optional: invalidate sudo cache at the end
 sudo -k
-
-# Further steps
-
-# Copy the archives to your storage drive(s) (uncomment and set the correct paths)
-#cp -dpR *dir.tgz /path/to/a/backup/directory

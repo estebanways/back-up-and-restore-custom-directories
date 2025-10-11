@@ -20,6 +20,12 @@ Run the script.
 bash back_up_custom_directories_using_separate_tarballs.sh
 ```
 
+Copy the archives to your storage drive(s) (set the correct paths).
+
+```shell
+sudo cp -dpR *dir.tgz /path/to/a/backup/directory
+```
+
 ## File: restore_custom_directories_using_separate_tarballs.sh
 
 ### Use
