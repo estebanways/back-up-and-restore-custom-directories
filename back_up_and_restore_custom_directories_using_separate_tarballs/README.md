@@ -22,10 +22,11 @@ bash back_up_custom_directories_using_separate_tarballs.sh
 
 The new files will appear in the directory `~/backups/`. This is to ensure the log and archives aren’t owned by root.
 
-Copy the archives to your storage drive(s) (set the correct paths).
+Copy the archives and/or compressed files to your storage drive(s) (set the correct paths).
 
 ```shell
-cp -dpR *dir.tgz /path/to/a/backup/directory
+cp -dpR *_dir.tgz /path/to/a/backup/directory
+cp -dpR *.gz /path/to/a/backup/directory
 ```
 
 ## File: restore_custom_directories_using_separate_tarballs.sh
