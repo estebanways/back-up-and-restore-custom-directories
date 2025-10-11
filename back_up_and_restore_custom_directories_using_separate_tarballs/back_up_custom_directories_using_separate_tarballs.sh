@@ -113,7 +113,7 @@ echo "=== BACKUP START: all_databases_*.sql.gz ===" | tee -a dirs.log
 # Databases are already compressed (not archived) by the PostgreSQL back up
 # script, so no need to run:
 # sudo tar -cvzpf backups-postgresql_dir.tgz /var/backups/postgresql/ 2>>dirs.log
-cp -dpR /var/backups/postgresql/* ./
+cp -dpR /var/backups/postgresql/* ./ 2>> dirs.log
 
 # Local user: root (sudo is required)
 # -----------------------------------
