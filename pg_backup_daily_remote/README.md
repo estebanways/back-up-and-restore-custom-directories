@@ -8,7 +8,7 @@ It automatically backs up all PostgreSQL databases daily, with compression, time
 
 ### Setup Steps
 
-Make the file executable:
+Copy the file to the directory `/usr/local/bin/` and make it executable:
 
 ```shell
 sudo chmod +x /usr/local/bin/pg_backup_daily_remote.sh
@@ -63,3 +63,23 @@ The backup is uploaded securely to your remote server via SSH.
 Local backups older than 7 days are deleted.
 
 All activity is logged in /var/backups/postgresql/pg_backup.log.
+
+### Restore Example
+
+To restore all databases from a backup:
+
+```shell
+gunzip -c /var/backups/postgresql/all_databases_YYYY-MM-DD_HH-MM-SS.sql.gz | sudo -u postgres psql
+```
+
+#### If You Omit `sudo -u postgres`
+
+You’ll usually get:
+
+```output
+psql: error: connection to server at "localhost" failed: FATAL:  Peer authentication failed for user "root"
+```
+
+PostgreSQL on operating systems like Debian runs under the postgres system user, and local connections (via UNIX sockets) are typically authenticated using the peer method — meaning that only the OS user postgres can access the postgres role in the database without a password.
+
+If you prefer to restore as a different user (e.g., root or your username), you can modify /etc/postgresql/<version>/main/pg_hba.conf to allow md5 or scram-sha-256 authentication for local connections — but for safety and simplicity, using sudo -u postgres is best.
