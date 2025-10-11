@@ -41,6 +41,24 @@ Run the script.
 ```shell
 sudo bash restore_custom_directories_using_separate_tarballs.sh
 ```
+or, if the script is executable:
+
+```shell
+sudo ./restore_dirs.sh
+```
+
+#### What Happens if You Don’t Use sudo
+
+You’ll get errors like:
+
+```output
+tar: ./etc: Cannot mkdir: Permission denied
+tar: ./root: Cannot open: Permission denied
+tar: Exiting with failure status due to previous errors
+
+```
+
+and the restore will fail partially or entirely.
 
 ### Back Up and Restore Issues
 
