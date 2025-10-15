@@ -71,7 +71,7 @@ sudo tar -cvzpf config_dir.tgz "$HOME"/config/ 2>> dirs.log
 # tar preserves symlinks by default (it stores the link itself, not what it
 # points to, and the symlink relationship is stored.)
 echo "=== BACKUP START: disorganized-dotfiles_dir.tgz ===" | tee -a dirs.log
-sudo tar -cvzpf disorganized-dotfiles_dir.tgz "$HOME"/.bashrc "$HOME"/.tmux.conf.local "$HOME"/.vimrc "$HOME"/.wezterm.lua "$HOME"/.zshrc 2>> dirs.log
+sudo tar -cvzpf disorganized-dotfiles_dir.tgz "$HOME"/.bashrc "$HOME"/.tmux.conf.local "$HOME"/.vimrc "$HOME"/.wezterm.lua "$HOME"/.zshrc "$HOME"/.zsh_history 2>> dirs.log
 
 # User passwords and keys
 # Password Keyrings & Stored Passwords. Also, Private Keys & Certificates
