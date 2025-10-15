@@ -56,10 +56,12 @@ echo "=== BACKUP START: git-cola_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf git-cola_dir.tgz "$HOME"/.config/git-cola/ 2>> dirs.log
 echo "=== BACKUP START: kate_dir.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf kate_dir.tgz "$HOME"/.config/kate/ 2>> dirs.log
-echo "=== BACKUP START: sword-vim-nvim-site-only_dir.tgz ===" | tee -a dirs.log
-sudo tar -cvzpf sword-vim-nvim-site-only_dir.tgz "$HOME"/.local/share/nvim/site/ 2>> dirs.log
 echo "=== BACKUP START: lazyvim-config-only.tgz ===" | tee -a dirs.log
 sudo tar -cvzpf lazyvim-config-only.tgz "$HOME"/.config/nvim/ 2>> dirs.log
+echo "=== BACKUP START: ollama_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf ollama_dir.tgz "$HOME"/.ollama/ 2>> dirs.log
+echo "=== BACKUP START: sword-vim-nvim-site-only_dir.tgz ===" | tee -a dirs.log
+sudo tar -cvzpf sword-vim-nvim-site-only_dir.tgz "$HOME"/.local/share/nvim/site/ 2>> dirs.log
 
 # Custom user configs
 echo "=== BACKUP START: config_dir.tgz ===" | tee -a dirs.log
